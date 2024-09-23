@@ -1,5 +1,8 @@
 <?php
 
+use database\Database;
+use database\CreateDB;
+
 session_start();
 
 define("CURRENT_DOMAIN", currentDomain() . "/news/");
@@ -10,7 +13,14 @@ const DB_NAME = "news_db";
 const DB_USERNAME = "root";
 const DB_PASSWORD = "";
 
-uri("admin/category", "", "");
+require_once 'database/DataBase.php';
+//require_once 'database/CreateDB.php';
+// $db = new Database();
+//$db = new CreateDB();
+//$db->run();
+
+
+//uri("admin/category", "", "");
 
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
