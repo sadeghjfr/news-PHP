@@ -14,13 +14,13 @@ const DB_USERNAME = "root";
 const DB_PASSWORD = "";
 
 require_once 'database/DataBase.php';
+require_once 'activities/admin/Admin.php';
+require_once 'activities/admin/Category.php';
+
 //require_once 'database/CreateDB.php';
 // $db = new Database();
 //$db = new CreateDB();
 //$db->run();
-
-
-//uri("admin/category", "", "");
 
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
@@ -59,6 +59,8 @@ function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
     $object = new $class;
     call_user_func_array(array($object, $method), $parameters);
+
+
     exit();
 }
 
@@ -141,3 +143,19 @@ function dd($var){
     var_dump($var);
     exit();
 }
+
+//category
+
+uri("admin/category", "admin\Category", "index");
+uri("admin/category/create", "admin\Category", "create");
+uri("admin/category/store", "admin\Category", "store", "POST");
+uri("admin/category/edit/{id}", "admin\Category", "edit");
+uri("admin/category/update/{id}", "admin\Category", "update", "POST");
+uri("admin/category/delete/{id}", "admin\Category", "delete");
+
+
+
+
+
+
+echo "404 - page not found";
