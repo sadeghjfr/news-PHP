@@ -14,13 +14,13 @@ class Admin{
 
     protected function redirect($url){
 
-        header("Location: ".trim($this->currentDomain, "/ ")."/".trim($url, "/ "));
+        header("Location:".trim($this->currentDomain,"/")."/".trim($url,"/"));
         exit();
     }
 
-    protected function redirectBack($url){
+    protected function redirectBack(){
 
-        header("Location: ".$_SERVER["HTTP_REFERER"]);
+        header("Location:".$_SERVER["HTTP_REFERER"]);
         exit();
     }
 
@@ -35,7 +35,7 @@ class Admin{
             $imageName = date("Y-m-d-H-i-s").$extension;
 
         $imageTemp = $image['tmp_name'];
-        $imagePath = "public/".$imagePath."/";
+        $imagePath ="public/".$imagePath."/";
 
         if (is_uploaded_file($imageTemp)){
 
@@ -53,7 +53,7 @@ class Admin{
 
     protected function removeImage($path){
 
-        $path = trim($this->basePath, "/ ")."/".trim($path, "/ ");
+        $path = trim($this->basePath,"/")."/".trim($path,"/");
 
         if (file_exists($path))
             unlink($path);

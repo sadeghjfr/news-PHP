@@ -22,13 +22,13 @@ class Database{
         try {
 
             $this->connection = new PDO(
-                "mysql:host=".$this->dbHost.";dbname=".$this->dbName,
+               "mysql:host=".$this->dbHost.";dbname=".$this->dbName,
                 $this->dbUsername,
                 $this->dbPassword,
                 $this->options
             );
 
-            echo "DB connected...";
+            //echo"DB connected...";
         }
 
         catch (PDOException $e){
@@ -55,7 +55,7 @@ class Database{
 
         catch (PDOException $e){
 
-            echo $e->getMessage();
+            echo "PDOException:".$e->getMessage();
             return false;
         }
 
@@ -66,8 +66,9 @@ class Database{
         try {
 
             $sql = /** @lang Text */
-                "INSERT INTO ".$table." (".implode(", ", $fields).
-                " , created_at) VALUES ( :". implode(", :", $values)." , now() );)";
+               "INSERT INTO ".$table." (".implode(",", $fields).
+               " , created_at) VALUES ( :". implode(", :", $fields)." , now() );";
+
             $stmt = $this->connection->prepare($sql);
             $stmt->execute(array_combine($fields, $values));
 
@@ -84,19 +85,19 @@ class Database{
 
     public function update($table, $id, $fields, $values){
 
-        $sql = "UPDATE ".$table."SET ";
+        $sql ="UPDATE ".$table." SET ";
 
         foreach (array_combine($fields, $values) as $field=>$value){
 
             if ($value)
-                $sql .= $field . " = ? , ";
+                $sql .= $field ." = ? ,";
 
             else
-                $sql .= $field . " = NULL , ";
+                $sql .= $field ." = NULL ,";
         }
 
-        $sql .= "updated_at = now()";
-        $sql .= " WHERE id = ?";
+        $sql .=" updated_at = now()";
+        $sql .=" WHERE id = ?";
 
         try {
             $stmt = $this->connection->prepare($sql);
@@ -115,7 +116,7 @@ class Database{
 
     public function delete($table, $id){
 
-        $sql = /** @lang Text */  "DELETE FROM ".$table." WHERE id = ? ;";
+        $sql = /** @lang Text */ "DELETE FROM ".$table." WHERE id = ? ;";
 
         try {
 

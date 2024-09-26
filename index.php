@@ -5,13 +5,13 @@ use database\CreateDB;
 
 session_start();
 
-define("CURRENT_DOMAIN", currentDomain() . "/news/");
+define("CURRENT_DOMAIN", currentDomain() ."/news/");
 const BASE_PATH = __DIR__;
 const DISPLAY_ERROR = true;
-const DB_HOST = "localhost";
-const DB_NAME = "news_db";
-const DB_USERNAME = "root";
-const DB_PASSWORD = "";
+const DB_HOST ="localhost";
+const DB_NAME ="news_db";
+const DB_USERNAME ="root";
+const DB_PASSWORD ="";
 
 require_once 'database/DataBase.php';
 require_once 'activities/admin/Admin.php';
@@ -25,12 +25,12 @@ require_once 'activities/admin/Category.php';
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
     $currentUrl = explode("?", currentUrl())[0];
-    $currentUrl = str_replace(CURRENT_DOMAIN, "", $currentUrl);
-    $currentUrl = trim($currentUrl, "/");
+    $currentUrl = str_replace(CURRENT_DOMAIN,"", $currentUrl);
+    $currentUrl = trim($currentUrl,"/");
     $currentUrlArray = explode("/", $currentUrl);
     $currentUrlArray = array_filter($currentUrlArray);
 
-    $reservedUrl = trim($reservedUrl, "/");
+    $reservedUrl = trim($reservedUrl,"/");
     $reservedUrlArray = explode("/", $reservedUrl);
     $reservedUrlArray = array_filter($reservedUrlArray);
 
@@ -41,8 +41,8 @@ function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
     for ($key = 0; $key < sizeof($reservedUrlArray); $key++) {
 
-        if ($reservedUrlArray[$key][0] == "{" &&
-            $reservedUrlArray[$key][strlen($reservedUrlArray[$key])-1] == "}"){
+        if ($reservedUrlArray[$key][0] =="{" &&
+            $reservedUrlArray[$key][strlen($reservedUrlArray[$key])-1] =="}"){
 
             $parameters[] = $currentUrlArray[$key];
         }
@@ -51,22 +51,24 @@ function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
             return false;
     }
 
+
     if (methodField() == 'POST'){
 
         $request = isset($_FILES) ? array_merge($_POST, $_FILES) : $_POST;
+
         $parameters = array_merge([$request], $parameters);
     }
 
+
     $object = new $class;
     call_user_func_array(array($object, $method), $parameters);
-
 
     exit();
 }
 
 function protocol(){
 
-    return stripos($_SERVER['SERVER_PROTOCOL'], "https") ? "https://" : "http://";
+    return stripos($_SERVER['SERVER_PROTOCOL'],"https") ?"https://" :"http://";
 }
 
 function currentDomain(){
@@ -77,15 +79,15 @@ function currentDomain(){
 // css, js, images
 function asset($src){
 
-    $domain = trim(CURRENT_DOMAIN, "/ ");
-    return $domain . "/" . trim($src, "/");
+    $domain = trim(CURRENT_DOMAIN,"/");
+    return $domain ."/" . trim($src,"/");
 }
 
 // links
 function url($url){
 
-    $domain = trim(CURRENT_DOMAIN, "/ ");
-    return $domain . "/" . trim($url, "/");
+    $domain = trim(CURRENT_DOMAIN,"/");
+    return $domain ."/" . trim($url,"/");
 }
 
 function currentUrl(){
@@ -134,28 +136,28 @@ function flash($name, $value = null){
 
         $_SESSION['flash_message'][$name] = $value;
     }
-    return "";
+    return"";
 }
 
 function dd($var){
 
-    echo "<pre>";
+    echo"<pre>";
     var_dump($var);
     exit();
 }
 
 //category
 
-uri("admin/category", "admin\Category", "index");
-uri("admin/category/create", "admin\Category", "create");
-uri("admin/category/store", "admin\Category", "store", "POST");
-uri("admin/category/edit/{id}", "admin\Category", "edit");
-uri("admin/category/update/{id}", "admin\Category", "update", "POST");
-uri("admin/category/delete/{id}", "admin\Category", "delete");
+uri("admin/category","admin\Category","index");
+uri("admin/category/create","admin\Category","create");
+uri("admin/category/store","admin\Category","store","POST");
+uri("admin/category/edit/{id}","admin\Category","edit");
+uri("admin/category/update/{id}","admin\Category","update","POST");
+uri("admin/category/delete/{id}","admin\Category","delete");
 
 
 
 
 
 
-echo "404 - page not found";
+echo"404 - page not found";
