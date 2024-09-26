@@ -26,16 +26,16 @@ class Admin{
 
     protected function saveImage($image, $imagePath, $imageName = null){
 
-        $extension = explode("/", $image['type'][1]);
+        $extension = explode("/", $image['type'])[1];
 
         if ($imageName)
-            $imageName = $imageName.$extension;
+            $imageName = $imageName.'.'.$extension;
 
         else
-            $imageName = date("Y-m-d-H-i-s").$extension;
+            $imageName = date("Y-m-d-H-i-s").'.'.$extension;
 
         $imageTemp = $image['tmp_name'];
-        $imagePath ="public/".$imagePath."/";
+        $imagePath ="public/image/".$imagePath."/";
 
         if (is_uploaded_file($imageTemp)){
 

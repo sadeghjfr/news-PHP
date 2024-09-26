@@ -16,6 +16,7 @@ const DB_PASSWORD ="";
 require_once 'database/DataBase.php';
 require_once 'activities/admin/Admin.php';
 require_once 'activities/admin/Category.php';
+require_once 'activities/admin/Post.php';
 
 //require_once 'database/CreateDB.php';
 // $db = new Database();
@@ -154,6 +155,17 @@ uri("admin/category/store","admin\Category","store","POST");
 uri("admin/category/edit/{id}","admin\Category","edit");
 uri("admin/category/update/{id}","admin\Category","update","POST");
 uri("admin/category/delete/{id}","admin\Category","delete");
+
+//post
+
+uri("admin/post","admin\Post","index");
+uri("admin/post/create","admin\Post","create");
+uri("admin/post/store","admin\Post","store","POST");
+uri("admin/post/edit/{id}","admin\Post","edit");
+uri("admin/post/update/{id}","admin\Post","update","POST");
+uri("admin/post/delete/{id}","admin\Post","delete");
+uri("admin/post/selected/{id}","admin\Post","selected");
+uri("admin/post/breaking-news/{id}","admin\Post","breakingNews");
 
 
 

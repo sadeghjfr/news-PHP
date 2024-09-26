@@ -14,6 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
 
     <link href="<?= asset('public/admin-panel/css/style.css') ?>" rel="stylesheet" type="text/css">
+    <link href="<?= asset('public/jalalidatepicker/persian-datepicker.min.css') ?>" rel="stylesheet" type="text/css">
 
 </head>
 <body>
