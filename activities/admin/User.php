@@ -1,6 +1,7 @@
 <?php
 
 namespace admin;
+
 use database\Database;
 
 class User extends Admin
@@ -25,21 +26,24 @@ class User extends Admin
         require_once(BASE_PATH . '/template/admin/user/edit.php');
     }
 
-    public function update($request, $id){
+    public function update($request, $id)
+    {
 
         $db = new Database();
+        $request = ['username' => $request['username'], 'permission' => $request['permission']];
         $db->update("users", $id, array_keys($request), $request);
         $this->redirect('admin/user');
     }
 
-    public function permission($id){
+    public function permission($id)
+    {
 
         $db = new Database();
 
         $sql = "SELECT * FROM users WHERE id = ?;";
         $user = $db->select($sql, [intval($id)])->fetch();
-        $permission = $user['permission'] === 'user' ? 'admin' : 'user' ;
-        $db->update("users",$id, ['permission'], [$permission]);
+        $permission = $user['permission'] === 'user' ? 'admin' : 'user';
+        $db->update("users", $id, ['permission'], [$permission]);
 
         $this->redirectBack();
     }

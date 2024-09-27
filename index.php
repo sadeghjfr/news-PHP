@@ -20,6 +20,7 @@ require_once 'activities/admin/Post.php';
 require_once 'activities/admin/Banner.php';
 require_once 'activities/admin/User.php';
 require_once 'activities/admin/Comment.php';
+require_once 'activities/admin/Menu.php';
 
 spl_autoload_register(function ($className){
     $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
@@ -199,7 +200,14 @@ uri("admin/comment/show/{id}","admin\Comment","show");
 uri("admin/comment/status/{id}","admin\Comment","status");
 
 
+//menu
 
+uri("admin/menu","admin\Menu","index");
+uri("admin/menu/create","admin\Menu","create");
+uri("admin/menu/store","admin\Menu","store","POST");
+uri("admin/menu/edit/{id}","admin\Menu","edit");
+uri("admin/menu/update/{id}","admin\Menu","update","POST");
+uri("admin/menu/delete/{id}","admin\Menu","delete");
 
 
 
