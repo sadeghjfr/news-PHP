@@ -21,6 +21,7 @@ require_once 'activities/admin/Banner.php';
 require_once 'activities/admin/User.php';
 require_once 'activities/admin/Comment.php';
 require_once 'activities/admin/Menu.php';
+require_once 'activities/admin/Setting.php';
 
 spl_autoload_register(function ($className){
     $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
@@ -209,12 +210,11 @@ uri("admin/menu/edit/{id}","admin\Menu","edit");
 uri("admin/menu/update/{id}","admin\Menu","update","POST");
 uri("admin/menu/delete/{id}","admin\Menu","delete");
 
+//menu
 
-
-
-
-
-
+uri("admin/setting","admin\Setting","index");
+uri("admin/setting/edit","admin\Setting","edit");
+uri("admin/setting/update","admin\Setting","update","POST");
 
 
 echo"404 - page not found";
