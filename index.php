@@ -18,6 +18,7 @@ require_once 'activities/admin/Admin.php';
 require_once 'activities/admin/Category.php';
 require_once 'activities/admin/Post.php';
 require_once 'activities/admin/Banner.php';
+require_once 'activities/admin/User.php';
 
 //require_once 'database/CreateDB.php';
 // $db = new Database();
@@ -177,7 +178,12 @@ uri("admin/banner/edit/{id}","admin\Banner","edit");
 uri("admin/banner/update/{id}","admin\Banner","update","POST");
 uri("admin/banner/delete/{id}","admin\Banner","delete");
 
+//user
 
+uri("admin/user","admin\User","index");
+uri("admin/user/edit/{id}","admin\User","edit");
+uri("admin/user/update/{id}","admin\User","update","POST");
+uri("admin/user/permission/{id}","admin\User","permission");
 
 
 
