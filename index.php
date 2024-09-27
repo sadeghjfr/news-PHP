@@ -19,11 +19,18 @@ require_once 'activities/admin/Category.php';
 require_once 'activities/admin/Post.php';
 require_once 'activities/admin/Banner.php';
 require_once 'activities/admin/User.php';
+require_once 'activities/admin/Comment.php';
 
-//require_once 'database/CreateDB.php';
-// $db = new Database();
-//$db = new CreateDB();
-//$db->run();
+spl_autoload_register(function ($className){
+    $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
+    $className = str_replace("\\", DIRECTORY_SEPARATOR, $className);
+    include $path . $className . '.php';
+});
+
+function jalaliDate($date){
+    date_default_timezone_set('Iran');
+    return Parsidev\Jalali\jdate::forge($date)->format('%A, %d %B %Y  ساعت H:i:s');
+}
 
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET'){
 
@@ -184,6 +191,21 @@ uri("admin/user","admin\User","index");
 uri("admin/user/edit/{id}","admin\User","edit");
 uri("admin/user/update/{id}","admin\User","update","POST");
 uri("admin/user/permission/{id}","admin\User","permission");
+
+//comment
+
+uri("admin/comment","admin\Comment","index");
+uri("admin/comment/show/{id}","admin\Comment","show");
+uri("admin/comment/status/{id}","admin\Comment","status");
+
+
+
+
+
+
+
+
+
 
 
 

@@ -30,7 +30,7 @@
                     <td><?= $user['email'] ?></td>
                     <!--<td>s</td>-->
                     <td><?= $user['permission'] ?></td>
-                    <td><?= $user['created_at'] ?></td>
+                    <td><?= jalaliDate($user['created_at']) ?></td>
                     <td>
 
                         <a role="button" class="btn btn-sm text-black-50 <?= ($user['permission'] === 'user')? 'btn-warning' : 'btn-success' ?>"
