@@ -13,7 +13,16 @@ const DB_NAME ="news_db";
 const DB_USERNAME ="root";
 const DB_PASSWORD ="";
 
+const MAIL_HOST = "smtp.gmail.com";
+const SMTP_AUTH = true;
+const MAIL_USERNAME = "sadeghjfr22@gmail.com";
+const MAIL_PASSWORD = "rvyq pmos xapp boia";
+const MAIL_PORT = 587;
+const SENDER_MAIL = "sadeghjfr22@gmail.com";
+const SENDER_NAME = "SADEGH JAFARI";
+
 require_once 'database/DataBase.php';
+
 require_once 'activities/admin/Admin.php';
 require_once 'activities/admin/Category.php';
 require_once 'activities/admin/Post.php';
@@ -23,11 +32,14 @@ require_once 'activities/admin/Comment.php';
 require_once 'activities/admin/Menu.php';
 require_once 'activities/admin/Setting.php';
 
+require_once 'activities/auth/Auth.php';
+
 spl_autoload_register(function ($className){
     $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
     $className = str_replace("\\", DIRECTORY_SEPARATOR, $className);
     include $path . $className . '.php';
 });
+
 
 function jalaliDate($date){
     date_default_timezone_set('Iran');
@@ -215,6 +227,20 @@ uri("admin/menu/delete/{id}","admin\Menu","delete");
 uri("admin/setting","admin\Setting","index");
 uri("admin/setting/edit","admin\Setting","edit");
 uri("admin/setting/update","admin\Setting","update","POST");
+
+//auth
+
+uri("register","auth\Auth","register");
+uri("register/store","auth\Auth","registerStore","POST");
+uri("activation/{verify_token}","auth\Auth","activation");
+uri("login","auth\Auth","login");
+uri("check-login","auth\Auth","checkLogin","POST");
+uri("logout","auth\Auth","logout");
+uri("forgot","auth\Auth","forgot");
+uri("forgot/request","auth\Auth","forgotRequest", "POST");
+uri("reset-password-form/{forgot_token}","auth\Auth","resetPasswordView");
+uri("reset-password/{forgot_token}","auth\Auth","resetPassword", "POST");
+
 
 
 echo"404 - page not found";

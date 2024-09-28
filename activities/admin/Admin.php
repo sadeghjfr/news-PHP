@@ -2,11 +2,16 @@
 
 namespace admin;
 
+use auth\Auth;
+
 class Admin{
 
     private $currentDomain;
     private $basePath;
     public function __construct(){
+
+        $auth = new Auth();
+        $auth->checkAdmin();
 
         $this->currentDomain = CURRENT_DOMAIN;
         $this->basePath = BASE_PATH;
