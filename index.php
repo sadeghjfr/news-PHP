@@ -24,6 +24,7 @@ const SENDER_NAME = "SADEGH JAFARI";
 require_once 'database/DataBase.php';
 
 require_once 'activities/admin/Admin.php';
+require_once 'activities/admin/Dashboard.php';
 require_once 'activities/admin/Category.php';
 require_once 'activities/admin/Post.php';
 require_once 'activities/admin/Banner.php';
@@ -169,6 +170,10 @@ function dd($var){
     var_dump($var);
     exit();
 }
+
+
+//dashboard
+uri("admin","admin\Dashboard","index");
 
 //category
 

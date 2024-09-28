@@ -31,12 +31,13 @@ class Post extends Admin {
 
         if ($request['cat_id'] != null){
 
+
             $image = $this->saveImage($request['image'], 'post-images');
             $request['image'] = $image;
 
             if ($request['image']){
 
-                $request['user_id'] = 1;
+                $request['user_id'] = $_SESSION['user'];
                 $db->insert("news", array_keys($request), $request);
                 $this->redirect('admin/post');
             }
