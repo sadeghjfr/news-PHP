@@ -34,6 +34,7 @@ require_once 'activities/admin/Menu.php';
 require_once 'activities/admin/Setting.php';
 
 require_once 'activities/auth/Auth.php';
+require_once 'activities/app/Home.php';
 
 spl_autoload_register(function ($className){
     $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
@@ -246,6 +247,12 @@ uri("forgot/request","auth\Auth","forgotRequest", "POST");
 uri("reset-password-form/{forgot_token}","auth\Auth","resetPasswordView");
 uri("reset-password/{forgot_token}","auth\Auth","resetPassword", "POST");
 
+//app
 
+uri('/', 'app\Home', 'index');
+uri('/home', 'app\Home', 'index');
+uri('/show-post/{id}', 'app\Home', 'show');
+uri('/show-category/{id}', 'app\Home', 'category');
+uri('/comment-store/{id}', 'app\Home', 'commentStore', 'POST');
 
 echo"404 - page not found";

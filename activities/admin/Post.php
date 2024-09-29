@@ -80,7 +80,7 @@ class Post extends Admin {
             else
                 unset($request['image']);
 
-            $request['user_id'] = 1;
+            $request['user_id'] = $_SESSION['user'];
             $db->update("news",$id, array_keys($request), $request);
             $this->redirect('admin/post');
         }
