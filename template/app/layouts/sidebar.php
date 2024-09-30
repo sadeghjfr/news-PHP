@@ -12,7 +12,7 @@
                         <img class="img-fluid" src="<?= asset($topSelectedPosts[0]['image']) ?>" alt="">
                     </div>
                     <ul class="tags">
-                        <li><a href="#"><?=$topSelectedPosts[0]['category']?></a></li>
+                        <li><a href="<?= url('show-category')."/".$topSelectedPosts[0]['cat_id'] ?>"><?=$topSelectedPosts[0]['category']?></a></li>
                     </ul>
                 </div>
                 <div class="details">

@@ -16,7 +16,7 @@
                         </div>
                         <div class="content-wrap">
                             <ul class="tags mt-10">
-                                <li><a href="#"><?= $post['category'] ?></a></li>
+                                <li><a href="<?= url('show-category')."/".$post['cat_id'] ?>"><?= $post['category'] ?></a></li>
                             </ul>
                             <a href="#">
                                 <h3><?= $post['title'] ?></h3>

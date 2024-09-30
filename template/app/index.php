@@ -17,7 +17,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                         </div>
                         <div class="top-post-details">
                             <ul class="tags">
-                                <li><a href="#"><?= $topSelectedPosts[0]['category'] ?></a></li>
+                                <li><a href="<?= url('show-category')."/".$topSelectedPosts[0]['cat_id'] ?>"><?= $topSelectedPosts[0]['category'] ?></a></li>
                             </ul>
                             <a href="<?= url('show-post')."/".$topSelectedPosts[0]['id'] ?>">
                                 <h3><?= $topSelectedPosts[0]['title'] ?></h3>
@@ -44,7 +44,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="#"><?= $topSelectedPosts[1]['category'] ?></a></li>
+                                    <li><a href="<?= url('show-category')."/".$topSelectedPosts[1]['cat_id'] ?>"><?= $topSelectedPosts[1]['category'] ?></a></li>
                                 </ul>
                                 <a href="<?= url('show-post')."/".$topSelectedPosts[1]['id'] ?>">
                                     <h4><?= $topSelectedPosts[1]['title'] ?></h4>
@@ -66,7 +66,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="#"><?= $topSelectedPosts[2]['category'] ?></a></li>
+                                    <li><a href="<?= url('show-category')."/".$topSelectedPosts[2]['cat_id'] ?>"><?= $topSelectedPosts[2]['category'] ?></a></li>
                                 </ul>
                                 <a href="<?= url('show-post')."/".$topSelectedPosts[2]['id'] ?>">
                                     <h4><?= $topSelectedPosts[2]['title'] ?></h4>
@@ -120,7 +120,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                                         <img class="img-fluid" src="<?= asset($news['image']) ?>" alt="">
                                     </div>
                                     <ul class="tags">
-                                        <li><a href="#"><?= $news['category'] ?></a></li>
+                                        <li><a href="<?= url('show-category')."/".$news['cat_id'] ?>"><?= $news['category'] ?></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-7 post-right">
@@ -167,7 +167,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                                 </div>
                                 <div class="details">
                                     <ul class="tags">
-                                        <li><a href="#"><?= $popularNews[0]['category'] ?></a></li>
+                                        <li><a href="<?= url('show-category')."/".$popularNews[0]['cat_id'] ?>"><?= $popularNews[0]['category'] ?></a></li>
                                     </ul>
                                     <a href="<?= url('show-post')."/".$popularNews[0]['id'] ?>">
                                         <h3><?= $popularNews[0]['title'] ?></h3>
@@ -192,7 +192,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                                             <img class="img-fluid" src="<?= asset($popularNews[1]['image']) ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#"><?= $popularNews[1]['category'] ?></a></li>
+                                            <li><a href="<?= url('show-category')."/".$popularNews[1]['cat_id'] ?>"><?= $popularNews[1]['category'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
@@ -217,7 +217,7 @@ require_once BASE_PATH . '/template/app/layouts/header.php';
                                             <img class="img-fluid" src="<?= asset($popularNews[2]['image']) ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#"><?= $popularNews[2]['category'] ?></a></li>
+                                            <li><a href="<?= url('show-category')."/".$popularNews[2]['cat_id'] ?>"><?= $popularNews[2]['category'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
