@@ -255,4 +255,4 @@ uri('/show-post/{id}', 'app\Home', 'show');
 uri('/show-category/{id}', 'app\Home', 'category');
 uri('/comment-store/{id}', 'app\Home', 'commentStore', 'POST');
 
-echo"404 - page not found";
+require_once 'template/404.php';
