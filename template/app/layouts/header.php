@@ -48,7 +48,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-6 header-top-right no-padding">
                     <ul>
                         <li><a href="tel:+<?= $setting['keywords'] ?>"><span class="lnr lnr-phone-handset"></span><span><?= $setting['phone'] ?>+</span></a></li>
-                        <li><a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span><span>support@colorlib.com</span></a></li>
+                        <li><a href="mailto:<?= $setting['email'] ?>"><span class="lnr lnr-envelope"></span><span><?= $setting['email'] ?></span></a></li>
                     </ul>
                 </div>
             </div>
